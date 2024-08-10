@@ -57,6 +57,7 @@ void WebApiLimitClass::onLimitPost(AsyncWebServerRequest* request)
     }
 
     AsyncJsonResponse* response = new AsyncJsonResponse();
+    response->addHeader("Access-Control-Allow-Origin", "*");
     JsonDocument root;
     if (!WebApi.parseRequestData(request, response, root)) {
         return;

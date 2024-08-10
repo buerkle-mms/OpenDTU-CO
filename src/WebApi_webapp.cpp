@@ -45,6 +45,10 @@ void WebApiWebappClass::responseBinaryDataWithETagCache(AsyncWebServerRequest *r
         response = request->beginResponse(200, contentType, content, len);
         if (contentEncoding.length() > 0) {
             response->addHeader("Content-Encoding", contentEncoding);
+            response->addHeader("Access-Control-Allow-Credentials", "true");
+            response->addHeader("Access-Control-Allow-Headers", "Authorization");
+            response->addHeader("Vary", "Origin");
+            response->addHeader("Access-Control-Allow-Origin", "*");
         }
     }
 
